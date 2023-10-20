@@ -1,0 +1,13 @@
+apiVersion: v1 # API Group and Version
+kind: Pod # Resource Type
+metadata:
+  name: apa000pod # Pod Name
+  labels: # Pod Labels
+    app: apa000kube
+
+spec: # Specification
+  containers: # Container Information
+    - name: apa000ex91 # Container Name
+      image: httpd # Image Name
+      ports:
+        - containerPort: 80 # Container Port

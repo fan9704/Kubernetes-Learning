@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # API Versiob
+kind: Deployment # Deployment Type
+metadata:  # Metadata
+  name: apa000dep # Deployment Name
+spec: # Specification
+  selector: # Deployment Selector
+    matchLabels: # Manage Label
+      app: apa000kube
+  replicas: 3 # Replicas Numbers
+  template: # Template for record Pod build information
+    metadata: # Pod Metadata
+      labels: # Pod Label
+        app: apa000kube # Pod Application
+    spec: # Pods Specification
+      containers: # Pods Container Information
+        - name: apa000ex91 # Pods Container Name
+          image: httpd # Pods Images Name
+          ports: # Pods Port
+            - containerPort: 80 # Port Number
