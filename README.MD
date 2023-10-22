@@ -50,7 +50,7 @@ Container will run on it.As a result Worker must install Container Engine
 
 ### Cluster
 
-Combination of Master Node and Worker Node called cluster
+Combination of Master Node and Worker Node called cluster.
 cluster will run self-discipline(automated). The Manager only setup,alter Master Node at the beginning, manager won't manage worker node 
 
 ### Before use
@@ -93,3 +93,22 @@ kube-let(embed in Kubernetes)
 | Linkage with kube-scheduler Distribute Pods in Worker Node,and monitor Pods Statement and notify kube-scheduler routinely | Network communication mechanism |
 
 ### Keep ideal statement
+
+Kubernetes can create/delete container without enter command.Basically setup number of container and volume Kubernetes will keep it in ideal statement.
+
+- Docker-Compose 
+  - Build Container/Volume then abort
+- Kubernetes
+  - Build/Monitor/Maintain and keep in ideal statement
+
+![](./K8sVSCompose.png)
+
+In summary when Kubernetes container has breakdown.Kubernetes will delete it automatically then rebuild a new container to keep in ideal statement
+
+#### Can I force to delete Kubernetes Container is docker command?
+
+Sure! but Kubernetes will rebuild a new container
+
+---
+
+## Kubernetes Construction
