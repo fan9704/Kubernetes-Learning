@@ -111,4 +111,50 @@ Sure! but Kubernetes will rebuild a new container
 
 ---
 
-## Kubernetes Construction
+## Kubernetes Construction 
+
+> Pod Service Deployment ReplicaSet
+> 
+
+
+### Pod 
+
+The management unit of Kubernetes is Pod.It is a pair of container and volume
+
+Basically one pod has one container ,but it also can be multiple container
+
+Like this 
+
+![](./Pod.png)
+
+The Volume of Pod can let multiple container use same information, so Pod usually not create Volume
+
+### Service
+
+Service overall manage Pod.
+
+It manages lots of Pods also can manage just one Pod 
+
+Even Pods are distributed in different concrete machine service also can manage them.
+
+**Service's role is load-balancer** it will distribute them to fixed IP(Cluster IP) then access IP telecom.
+
+However, Service only can process **Worker Node** telecom.About the distribution of Work Node should use **Load-Balancer or Ingress** need to prepare specify concrete machine or node.
+
+### Deployment and ReplicaSet
+
+ReplicaSet manage Pod's figure
+
+When Pod is down.ReplicaSet will add Pods figure.When downsize definition of setting configuration it will also reduce the figure of pods
+
+So Pods is managed by ReplicaSet and Service
+
+![](./Pod-Service-ReplicaSet.png)
+
+So Pod also can call Replica
+
+We seldom use ReplicaSet single usually we will also use Deployment together
+
+Deployment manage Pod to configure and expanded
+
+![]()
