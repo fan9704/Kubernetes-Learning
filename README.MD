@@ -157,4 +157,54 @@ We seldom use ReplicaSet single usually we will also use Deployment together
 
 Deployment manage Pod to configure and expanded
 
-![]()
+![](./Deployment.png)
+
+### Other resource of Kubernetes
+
+
+| Resource Name          | Content                                  |
+|------------------------|------------------------------------------|
+| Pods                   | The pair of volume and Container         |
+| podtemplates           | Pod template for deployment              |
+| replicationcontrollers | Controller of Replica                    | 
+| resourcequotas         | Restriction of Kubernetes resource usage |
+| secrets                | Management of Key information            |
+| serviceaccounts        | user of manager                          |
+| services               | Manage of Access for Pod                 | 
+| daemonsets             | build a Pod on each Worker Node          | 
+| deployments            | Manage deployment of Pod                 |
+| replicaSet             | Manage figure of Pod                     |
+| statefulsets           | maintain state of pod deployment         |
+| cronjobs               | schedule execute pod                     |
+| jobs                   | execute pod ones                         |
+
+![](./WholeStructure.png)
+
+---
+
+## Installation and usage of Kubernetes
+
+Kubernetes is an opensource software.Its standard formulate by **Cloud Native Computing Foundation, CNCF**
+
+CNCF has their own Kubernetes also third-party Kubernetes according CNFC formulation to create their own Kubernetes
+
+Google Cloud Platform,AWS,Azure offer cloud version of customize Kubernetes.
+
+This kind of Kubernetes is compatible with each other. Official list all the Kubernetes which obtain **Certified Kubernetes** certificate and compatible software.
+
+### Kubernetes Desktop and Minikube save your soul
+
+It's hard for beginner to try Kubernetes.So Docker Desktop bundle Kubernetes.We only need to check **Kubernetes** that we can use Kubernetes and don't need to install **etcd CNI...** dependencies.
+
+So how about linux system? Linux's system can use simple version of Kubernetes **Minikube**
+
+#### Minikube(Linux)
+
+Kubernetes is for **Large Scale System** it needs lots of concrete machine setup **Master Node** and **Worker Node**
+
+Minikube can setup **Master Node** and **Worker Node** in one concrete machine
+
+we don't need to prepare anymore concrete machine that is really convenient!!
+
+#### Docker Desktop Kubernetes(MacOS and Windows)
+
