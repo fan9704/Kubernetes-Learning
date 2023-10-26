@@ -207,4 +207,132 @@ Minikube can setup **Master Node** and **Worker Node** in one concrete machine
 we don't need to prepare anymore concrete machine that is really convenient!!
 
 #### Docker Desktop Kubernetes(MacOS and Windows)
+##### Step.1 Enable Kubernetes
+
+In setting panel check **Enable Kubernetes**
+
+![](./Docker-Desktop-Open1.png)
+
+##### Step.2 Install Kubernetes
+
+If it has prompt on your window please click **Install** button
+
+##### Step.3 Activate Kubernetes
+
+Wait Kubernetes icon which located in bottom navigation turn green. 
+
+![](./Docker-Desktop-Open3.png)
+
+#### Supplement Concrete machine Kubernetes construction and kubeadm
+
+How to operate construct production of Kubernetes on multiple concrete machine?
+
+If we want to use production of Kubernetes
+
+1. must prepare sufficient figure of concrete machine or virtual machine (Worker Node + Master Node) then carry with Ubuntu/Linux... OS.
+2. Then install Kubernetes/CNI/etcd on **Master Node**
+3. Install Container engine/Kubernetes/CNI on **Worker Node**
+
+The following step of construction we can through **kubeadm** to help us.
+
+Finally, what **Master Node and Worker Node** is response for.
+- Master Node use **kubeadm init**
+- Worker Node use **kubead** that we can connect with Master Node
+
+Also, you can use other tool like **conjure-up** **Tectonic**
+
+---
+
+## Definition file(list file) format
+
+### What is definition file(list file)
+
+Kubernetes will follow definition file(list file) content to build **Pod**.Make definition file upload to Kubernetes.**Ideal statement** will write in database(etcd).
+
+![](./definition-to-etcd.png)
+
+#### Coding definition file by Yaml
+
+Pod,Server.etc.. configuration called **manifest** in Kubernetes
+
+It is difference with Docker Compose, Kubernetes definition file has no restriction in naming.
+
+| Name                   | Content |
+|------------------------|---------|
+| Definition File Format | YAML    | 
+| Definition File Name   | Any     |
+
+#### In terms of resource write definition file content
+
+In definition file we don't write Pod. Why our target is build Pod but haven't pod.Because when Kubernetes build Pod by Pod it won't maintain its pod figure.
+
+These kinds of feature are managed by **ReplicaSet and Deployment** So we need to write **ReplicaSet and Deployment**, and when we write **Deployment** it also involves of **ReplicaSet**, So we only need to write **Deployment**
+
+In summary if we want to build **Apache Pod** only need to write **Apache Deployment** and **Apache Service**.
+
+#### Definition File Separate
+
+Definition file can accord resource type to separate file.
+
+![](./Definition-Separate-Integration.png)
+
+### Definition Inputs
+
+Kubernetes definition file divide into four part
+
+| part         | content                |
+|--------------|------------------------|
+| apiVersion:  | API Group and Version  | 
+| kind:        | Resource kind          | 
+| metadata:    | Resource description   | 
+| spec:        | Resource Content       | 
+
+#### Specify resource (API group and type)
+
+When we specify resource need to enter API group (API Version) and kind
+
+##### General Resource API Group and Version
+
+| Resource   | API Group/Version | Kind          |
+|------------|-------------------|---------------|
+| Pod        | core/v1 (or v1)   | Pod           |
+| Service    | core/v1 (or v1)   | Service       |
+| Deployment | apps/v1           | Deployment    |
+| ReplicaSet | apps/v1           | ReplicaSet    |
+
+#### Metadata and Spec
+
+Metadata involve
+- Resource name
+- Resource Label
+
+Spec is resource content
+
+![](./Metadata-Spec.png)
+
+##### Major Metadata
+
+| Item               | Content                                                   |
+|--------------------|-----------------------------------------------------------|
+| name               | resource name                                             | 
+| namespace          | DNS compatibility tags to further break down resources    |
+| uid                | unique id                                                 | 
+| resourceVersion    | resource Version                                          | 
+| generation         | Create sequence id                                        |
+| creationTimestamp  | create time                                               | 
+| deletionTimestamp  | delete stamp                                              |
+| labels             | any label                                                 |
+| annotation         | resource setting value                                    |
+
+#### Label and Selector
+
+Pod and Service can add any label
+
+Label is a pair of key and value,Presented in the form of metadata.
+
+After we added label we can through selector to filter Pod/Service.
+
+### Metadata and Spec format(1) Pod
+
+
 
